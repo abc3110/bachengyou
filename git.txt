@@ -1,0 +1,78 @@
+1、首先要安装git
+	安装完之后，附带两个工具：Git UI、Git Bash
+	打开Git Bash，执行命令
+2、git --version   查看git的版本号
+   git config --global user.name "abc3110"
+   git config --global user.email "670948054@qq.com"
+3、mkdir 目录名     mkdir D:/tarenaProject/bachengyou
+   cd  目录名       cd D:/tarenaProject/bachengyou
+   pwd				pwd
+   显示路径			/d/tarenaProject/bachengyou
+4、git init
+   ls -ah
+5、vi readme.txt
+   :进入末行模式，wq保存退出
+
+   git add "readme.txt"			 //修改保存到暂存区
+   git commit -m "write a file"  //暂存区内容提交到本地仓库（版本库）
+
+6、git diff HEAD -- readme.txt   //比较不同
+   git status					 //查看分支状态
+   cat readme.txt				 //查看文件内容
+   
+   git checkout -- readme.txt	 //丢弃工作区内容
+   git reset HEAD readme.txt	 //撤销暂存区修改
+
+   git log						 //显示从最近到最远的提交日志，查看提交历史
+   git log --pretty=oneline		 //把提交日志显示的漂亮点，显示第一行
+
+   git reset --hard HEAD^		 //把当前版本回退到上一个版本
+   git reset --hard 1094a		 //回到未来的某个版本
+   git reflog					 //记录每一次命令，查看命令历史
+
+   git rm test.txt				 //从版本库中删除某文件
+   git commit
+   git checkout -- test.txt		 //将版本库列的文件还原到工作区
+
+   rm text.tx				     //删除文件
+   ls							 //查看目录
+
+7、远程仓库
+	SVN：集中式版本控制系统； Git：分布式版本控制系统
+	github：提供git仓库托管服务的网站
+	本地Git仓库和GitHub仓库传输通过SSH加密，需要一点设置
+	
+	ssh-keygen -t rsa -C "youremail@example.com"	  //创建SSH Key
+	.ssh		目录
+	id_rsa		私钥，不能泄露
+	id_rsa.pub	公钥，可以告诉别人；Add SSH Key添加公钥
+
+8、本地仓库和GitHub仓库同步
+	git remote add origin git@github.com:abc3110/bachengyou.git			//本地仓库与远程仓库相关联
+	git push -u origin master		//把本地库的内容推送到远程库，第一次推送加-u，不仅把本地master内容推送到远程，
+																  还把本地master分支与远程master相关联
+	git push origin master			//把本地master分支最新修改推送至GitHub
+
+	SSH警告		第一次使用Git的clone或push
+				第一次验证key，确认GitHub的Key的指纹信息是否来自GitHub服务器
+	git clone git@github.com:michaelliao/gitskills.git			//克隆远程库到本地
+	https	速度慢，每次推送必须输入口令
+
+二、分支管理
+	创建一个自己的分支，别人看不到，别人继续在原来的分支正常工作，你在自己的分支上干活；开发完毕，一次性合并到原来分支
+	master分支一条线，Git用master指向最新的提交，再用HEAD指向master，确定当前分支，和分支提交点
+	
+	git checkout -b dev				//创建并切换到dev分支，—b表示创建并切换
+	git branch dev					//创建分支dev
+	git checkout dev				//切换分支dev
+
+	git branch						//查看分支
+	git checkout master				//切回master分支
+
+	git merge dev					//把div分支的工作成果合并到master分支上
+		Fast-forward					快进模式
+	git branch -d dev				//删除分支
+
+
+
+
