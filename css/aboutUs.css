@@ -1,0 +1,22 @@
+.my_title_one{
+	font-size:1.7rem;
+}
+.my_title_two{
+	font-size:1.2rem;
+}
+.my_title_three{
+	font-size: 1.75rem;
+}
+.my_text{
+	font:1.2rem "宋体";
+	line-height:3.15rem;
+}
+.my_text>p{
+	margin:0;
+}
+.color_green{
+	background:lime;
+}
+.color_red{
+	color:red;
+}
